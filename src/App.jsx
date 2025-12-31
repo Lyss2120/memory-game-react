@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const cardImages = [
@@ -18,20 +18,34 @@ function App() {
   const shuffledCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(()=> Math.random() - 0.5)
-      .map((card)=>({...card, id: Math.floor(Math.random() * 12) + 1 }))
+      .map((card)=>({...card, id: Math.random()}))
 
       setCards(shuffledCards)
-      setTurns(0)
+      setTurns(1)
   }
 
 console.log(cards);
-
+useEffect (() => {
+  shuffledCards()
+},[])
 
   return (
     <>
       <div className='App'> 
         <h1>Magic Memory</h1>
         <button>New Game</button>
+
+<div>
+  {cards.map((card)=>(
+<div className='card' key={card.id}>
+    <img  src={card.src} alt="front" />
+    <img  src="img/cover.png" alt="back" />
+</div>
+
+  ))}
+  {turns}
+</div>
+
       </div>
     </>
   )
