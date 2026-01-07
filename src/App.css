@@ -1,42 +1,46 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body{
+  background-color: #23042d;
+  color: aliceblue;  
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.App{
+  max-width: 860px;
+  margin: 40px auto;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+button {
+  border-radius: 4px;
+  border: 2px solid #fff;
+  padding: 6px 12px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: #fff;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+button:hover {
+  background: #c23866;
+  color: #fff;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* .barra{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+} */
 .card {
-  padding: 2em;
+  padding: 3px;
+  border-color: solid aliceblue;
+  border-radius: 5px;
+  background-color: aliceblue;
 }
 
-.read-the-docs {
-  color: #888;
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;    
+  margin-top: 40px; 
 }
