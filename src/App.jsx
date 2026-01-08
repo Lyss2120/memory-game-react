@@ -26,8 +26,10 @@ function App() {
 
     setCards(shuffledCards)
     setTurns(0)
-
+    setChoiceOne(null)
+    setChoiceTwo(null)  
   }
+
   useEffect(() => {
     shuffledCards()
   }, [])
@@ -37,7 +39,6 @@ function App() {
   }
 
   useEffect(() => {
-
     if (choiceOne && choiceTwo) {
       setDisabled(true)
       if (choiceOne.src === choiceTwo.src) {
