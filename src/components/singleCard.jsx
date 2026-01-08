@@ -2,11 +2,11 @@ import './SingleCard.css'
 
 
 
-export default function SingleCard({ card, handleChoice, flipped }) {
+export default function SingleCard({ card, handleChoice, flipped, disabled }) {
 
 const handleClick = () =>{ 
-// console.log({choiceOne},{choiceTwo});
-    handleChoice(card)
+console.log('no');
+    if (!disabled) handleChoice(card)
 }
 
     return (
