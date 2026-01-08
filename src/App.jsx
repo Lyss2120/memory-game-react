@@ -25,8 +25,8 @@ function App() {
 
     setCards(shuffledCards)
     setTurns(0)
-  }
 
+  }
   useEffect(() => {
     shuffledCards()
   }, [])
@@ -47,19 +47,20 @@ function App() {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
         setCards(prevCards => {
-            return prevCars.map(card => {
-              if (card.src === choiceOne.src) {
-                return {...card, matched: true}
-              }
-            })
+          return prevCards.map(card => {
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true }
+            } else { return card }
+          })
         })
         resetTurn()
       }
-     else {
-      console.log('not match');
-      resetTurn()
-    }}
-    console.log(cards);
+      else {
+        console.log('not match');
+        setTimeout(() => resetTurn(), 1000);
+      }
+    }
+    console.log({ cards });
   }, [choiceOne, choiceTwo])
 
 
@@ -68,19 +69,14 @@ function App() {
       <div className='App'>
         <div className="barra">
           <h1>Magic Memory</h1>
-          <button
-          // onClick={}
-
-
-          >New Game</button>
+          <button onClick={shuffledCards}> New Game </button>
         </div>
         <div className='card-grid ' >
           {cards.map((card) => (
             <SingleCard key={card.id}
               card={card}
               handleChoice={handleChoice}
-              choiceOne={choiceOne}
-              choiceTwo={choiceTwo}
+              flipped={card === choiceOne || card === choiceTwo || card.matched}
             />
           ))}
           Turn : {turns}
